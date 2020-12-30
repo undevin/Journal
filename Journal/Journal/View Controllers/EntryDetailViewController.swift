@@ -8,11 +8,12 @@
 import UIKit
 
 class EntryDetailViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var bodyTextView: UITextView!
     
     var entry: Entry?
+    var journal: Journal?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +28,12 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let title = titleTextField.text, !title.isEmpty,
-              let body = bodyTextView.text, !body.isEmpty else { return }
+              let body = bodyTextView.text, !body.isEmpty,
+              let journal = journal else { return }
         if let entry = entry {
-            print("Cant update \(entry.title) jsut yet. We will handle this tomorrow.")
+            EntryController.update(entry: entry, title: title, body: body)
         } else {
-            EntryController.shared.createEntryWith(title: title, body: body)
+            EntryController.createEntryWith(title: title, body: body, journal: journal)
         }
         navigationController?.popViewController(animated: true)
     }
