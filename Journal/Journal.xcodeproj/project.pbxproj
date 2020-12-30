@@ -12,6 +12,10 @@
 		7EDA1216259D233600BBD350 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EDA1214259D233600BBD350 /* Main.storyboard */; };
 		7EDA1218259D233700BBD350 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EDA1217259D233700BBD350 /* Assets.xcassets */; };
 		7EDA121B259D233700BBD350 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EDA1219259D233700BBD350 /* LaunchScreen.storyboard */; };
+		7EDA122A259D2FDC00BBD350 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA1229259D2FDC00BBD350 /* Entry.swift */; };
+		7EDA122F259D300100BBD350 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA122E259D300100BBD350 /* EntryController.swift */; };
+		7EDA1234259D30DA00BBD350 /* EntryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA1233259D30DA00BBD350 /* EntryListTableViewController.swift */; };
+		7EDA1238259D31D200BBD350 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA1237259D31D200BBD350 /* EntryDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		7EDA1217259D233700BBD350 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7EDA121A259D233700BBD350 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7EDA121C259D233700BBD350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EDA1229259D2FDC00BBD350 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		7EDA122E259D300100BBD350 /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
+		7EDA1233259D30DA00BBD350 /* EntryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListTableViewController.swift; sourceTree = "<group>"; };
+		7EDA1237259D31D200BBD350 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +62,12 @@
 		7EDA120D259D233600BBD350 /* Journal */ = {
 			isa = PBXGroup;
 			children = (
-				7EDA1223259D234200BBD350 /* Resources */,
+				7EDA122C259D2FEC00BBD350 /* Model */,
+				7EDA1231259D30B100BBD350 /* Model Controller */,
 				7EDA1227259D237600BBD350 /* Storyboards */,
+				7EDA1223259D234200BBD350 /* Resources */,
+				7EDA1233259D30DA00BBD350 /* EntryListTableViewController.swift */,
+				7EDA1237259D31D200BBD350 /* EntryDetailViewController.swift */,
 			);
 			path = Journal;
 			sourceTree = "<group>";
@@ -78,6 +90,22 @@
 				7EDA1219259D233700BBD350 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		7EDA122C259D2FEC00BBD350 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7EDA1229259D2FDC00BBD350 /* Entry.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7EDA1231259D30B100BBD350 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7EDA122E259D300100BBD350 /* EntryController.swift */,
+			);
+			path = "Model Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,7 +178,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EDA122A259D2FDC00BBD350 /* Entry.swift in Sources */,
+				7EDA1234259D30DA00BBD350 /* EntryListTableViewController.swift in Sources */,
 				7EDA120F259D233600BBD350 /* AppDelegate.swift in Sources */,
+				7EDA122F259D300100BBD350 /* EntryController.swift in Sources */,
+				7EDA1238259D31D200BBD350 /* EntryDetailViewController.swift in Sources */,
 				7EDA1211259D233600BBD350 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
