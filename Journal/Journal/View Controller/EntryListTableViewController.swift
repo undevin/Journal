@@ -8,28 +8,37 @@
 import UIKit
 
 class EntryListTableViewController: UITableViewController {
-
+    
     
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        EntryController.shared.loadFromPersistentStorage()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return EntryController.shared.entries.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
         let entry = EntryController.shared.entries[indexPath.row]
-        
         cell.textLabel?.text = entry.title
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy"
+        cell.detailTextLabel?.text = formatter.string(from: EntryController.shared.entries[indexPath.row].timestamp)
+        
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let entryToDelete = EntryController.shared.entries[indexPath.row]

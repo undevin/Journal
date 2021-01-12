@@ -8,7 +8,7 @@
 import UIKit
 
 class EntryDetailViewController: UIViewController, UITextFieldDelegate {
-
+    
     // MARK: - Outlets
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var bodyTextView: UITextView!
@@ -17,6 +17,7 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateView()
+        titleTextField.delegate = self
     }
     
     // MARK: - Properties
@@ -27,13 +28,14 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
         titleTextField.text = ""
         bodyTextView.text = ""
     }
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
-        if let entry = titleTextField.text?.isEmpty, let body = bodyTextView.text?.isEmpty {
-            print("To be implemented tomorrow")
-        } else {
-            EntryController.shared
-        }
+        guard let title = titleTextField.text, !title.isEmpty,
+              let body = bodyTextView.text, !body.isEmpty else { return }
         
+        EntryController.shared.createEntryWith(title: title, body: body)
+        EntryController.shared.saveToPersistentStorage()
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func updateView() {
@@ -43,7 +45,6 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn() {
-        let titleField = titleTextField
-        titleField?.resignFirstResponder()
+        titleTextField.resignFirstResponder()
     }
 }

@@ -13,20 +13,22 @@ class EntryController {
     
     var entries: [Entry] = []
     
-    func createEntryWith(title: String, body: String, timestamp: Date) {
-        let entry = Entry(title: title, body: body, timestamp: Date())
+    func createEntryWith(title: String, body: String, timestamp: Date = Date()) {
+        let entry = Entry(title: title, body: body, timestamp: timestamp)
         entries.append(entry)
+        saveToPersistentStorage()
     }
     
     func deleteEntry(entryToDelete: Entry) {
         guard let index = entries.firstIndex(of: entryToDelete) else { return }
         entries.remove(at: index)
+        saveToPersistentStorage()
     }
     
     private func fileURL() -> URL {
-     let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-     let documentsDirectoryURL = urls[0].appendingPathComponent("Journal.json")
-     return documentsDirectoryURL
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectoryURL = urls[0].appendingPathComponent("Journal.json")
+        return documentsDirectoryURL
     }
     
     func saveToPersistentStorage() {
