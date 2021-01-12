@@ -41,5 +41,14 @@ class EntryListTableViewController: UITableViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if segue.identifier == "toEntryDetailsVC" {
+            
+            guard let indexPath = tableView.indexPathForSelectedRow,
+                  let destinationVC = segue.destination as? EntryDetailViewController else { return }
+            
+            let entryToSend = EntryController.shared.entries[indexPath.row]
+            destinationVC.entry = entryToSend
+        }
+        
     }
 }

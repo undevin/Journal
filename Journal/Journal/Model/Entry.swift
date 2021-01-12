@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Entry {
+class Entry: Codable {
     let title: String
     let body: String
     let timestamp: Date
