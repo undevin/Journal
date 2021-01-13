@@ -57,10 +57,9 @@ class EntryListTableViewController: UITableViewController {
         guard let journal = journal,
               let destination = segue.destination as? EntryDetailViewController else { return }
         
-        if segue.identifier == "toEntryDetailsVC" {
-            guard let indexPath = tableView.indexPathForSelectedRow,
-                  let destination = segue.destination as? EntryDetailViewController else { return }
-            
+        if segue.identifier == "toEntryDetails" {
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+                  
             let entryToSend = journal.entries[indexPath.row]
             destination.journal = journal
             destination.entry = entryToSend

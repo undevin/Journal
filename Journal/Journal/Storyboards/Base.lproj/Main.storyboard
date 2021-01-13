@@ -131,7 +131,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="3dX-s2-QTf" kind="show" identifier="toEntryDetailsVC" id="qt2-Wd-Ynp"/>
+                                    <segue destination="3dX-s2-QTf" kind="show" identifier="toEntryDetails" id="qt2-Wd-Ynp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -233,7 +233,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kwF-NU-scQ"/>
+        <segue reference="qt2-Wd-Ynp"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
