@@ -8,8 +8,8 @@
 import Foundation
 
 class Entry: Codable {
-    let title: String
-    let body: String
+    var title: String
+    var body: String
     var timestamp: Date
     
     init(title: String, body: String, timestamp: Date = Date()) {
