@@ -15,14 +15,13 @@ class JournalController {
     // MARK: - Source of Truth
     var journals: [Journal] = []
     
-    // MARK: - Create Method
+    // MARK: - CRUD Methods
     func createJournalWith(title: String) {
         let journal = Journal(title: title)
         journals.append(journal)
         saveToPersistentStorage()
     }
     
-    // MARK: - Delete Method
     func deleteJournal(journalToDelete: Journal) {
         guard let index = journals.firstIndex(of: journalToDelete) else { return }
         journals.remove(at: index)
